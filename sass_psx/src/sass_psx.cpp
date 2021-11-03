@@ -24,11 +24,11 @@ namespace teleop_twist_joy
             nh_param->param<double>("scale_linear_turbo", scale_linear_map["turbo"]["x"], 1.0);
         }
 
-        if (nh_param->getParam("axis_joy_angular_left", axis_angular_map)){
+        if (nh_param->getParam("axis_joy_angular_right", axis_angular_map)){
             nh_param->getParam("scale_angular", scale_angular_map["normal"]);
             nh_param->getParam("scale_angular_turbo", scale_angular_map["turbo"]);
         }else{
-            nh_param->param<int>("axis_joy_angular_left", axis_angular_map["yaw"], 0);
+            nh_param->param<int>("axis_joy_angular_right", axis_angular_map["yaw"], 0);
             nh_param->param<double>("scale_angular", scale_angular_map["normal"]["yaw"], 0.5);
             nh_param->param<double>("scale_angular_turbo", scale_angular_map["turbo"]["yaw"], scale_angular_map["normal"]["yaw"]);
         }
