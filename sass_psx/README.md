@@ -22,7 +22,7 @@
 
 # Autoconnect Bluetooth with systemctl (Autostart when boot)
 - Create bash file:
-    + Direct to folder: /SASs_AMR_ws/src/SASs_AMR/base_controller/sass_startup
+    + Direct to folder: /SASs_PSx_ws/src/SASs_PSx/sass_psx
     + Create and edit bash file: $sudo nano autoconnect_bluetooth.sh
     + Add to bash file: 
 ```
@@ -59,7 +59,7 @@ User=nhamtung
 Type=simple
 Restart=always
 RestartSec=1
-ExecStart=/home/nhamtung/SASs_AMR_ws/src/SASs_AMR/base_controller/sass_controller/sass_manual/sass_psx/autoconnect_bluetooth.sh
+ExecStart=/home/nhamtung/TungNV/SASs_PSx_ws/src/SASs_PSx/sass_psx/autoconnect_bluetooth.sh
 RemainAfterExit=no
 [Install]
 WantedBy=multi-user.target
