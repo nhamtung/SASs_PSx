@@ -1,0 +1,11 @@
+axis_joy_linear_left: 1
+axis_joy_linear_right: 4
+scale_linear: 0.3         # (m/s) max_velocity of linear when use joystick
+scale_linear_turbo: 1.0   # (m/s) max_velocity of linear when use joystick
+
+axis_joy_angular_left: 0
+axis_joy_angular_right: 3
+scale_angular: 0.5        # (rad/s) max_velocity of angle when use joystick
+
+enable_button: 5          # L2 button - Enable using joystick
+enable_turbo_button: 4    # L1 button - Enable using joystick with turbo speed
