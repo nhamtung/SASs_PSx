@@ -56,5 +56,5 @@ install(DIRECTORY include/${PROJECT_NAME}/
 install(FILES
   launch/ps4.launch
   launch/psx_control_manual.launch
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
 )
