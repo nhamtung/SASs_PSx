@@ -50,10 +50,15 @@ install(DIRECTORY include/${PROJECT_NAME}/
 install(FILES
   launch/ps4.launch
   launch/psx_control_manual.launch
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+)
+install(FILES
+  config/ps4.config.yaml
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/config
 )
 ```
 - Build install package: $catkin_make install
+- Source: $source install/setup.bash
 
 # Autoconnect Bluetooth with systemctl (Autostart when boot)
 - Create bash file:

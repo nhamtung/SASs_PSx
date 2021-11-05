@@ -58,3 +58,7 @@ install(FILES
   launch/psx_control_manual.launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
 )
+install(FILES
+  config/ps4.config.yaml
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/config
+)
