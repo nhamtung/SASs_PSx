@@ -20,6 +20,41 @@
     + Press and hold the L1 or L2 to select max_linear_speed
     + Use Vertical of left joystick to control Linear and Horizontal of right joystick to control Angular
 
+# Install package
+- Add command to install in CMakeLists.txt:
+```
+#############
+## Install ##
+#############
+
+## Mark executable scripts (Python etc.) for installation
+# catkin_install_python(PROGRAMS
+#   scripts/my_python_script
+#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+# )
+## Mark executables for installation
+install(TARGETS psx_manual_node
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+## Mark libraries for installation
+install(TARGETS ${PROJECT_NAME}
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
+)
+## Mark cpp header files for installation
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+)
+## Mark other files for installation (e.g. launch and bag files, etc.)
+install(FILES
+  launch/ps4.launch
+  launch/psx_control_manual.launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
+```
+- Build install package: $catkin_make install
+
 # Autoconnect Bluetooth with systemctl (Autostart when boot)
 - Create bash file:
     + Direct to folder: /SASs_PSx_ws/src/SASs_PSx/sass_psx

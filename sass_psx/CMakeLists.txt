@@ -33,39 +33,28 @@ add_dependencies(psx_manual_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EX
 ## Install ##
 #############
 
-# all install targets should use catkin DESTINATION variables
-# See http://ros.org/doc/api/catkin/html/adv_user_guide/variables.html
-
 ## Mark executable scripts (Python etc.) for installation
-## in contrast to setup.py, you can choose the destination
 # catkin_install_python(PROGRAMS
 #   scripts/my_python_script
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
-
 ## Mark executables for installation
-## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
 install(TARGETS psx_manual_node
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
-
 ## Mark libraries for installation
-## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_libraries.html
 install(TARGETS ${PROJECT_NAME}
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
 )
-
 ## Mark cpp header files for installation
 install(DIRECTORY include/${PROJECT_NAME}/
-  sass_psx.cpp
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
-
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 install(FILES
-  ps4.launch
-  psx_control_manual.launch
+  launch/ps4.launch
+  launch/psx_control_manual.launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
