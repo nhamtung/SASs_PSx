@@ -5,6 +5,7 @@
 	<arg name="deadzone" 			default="0.3" />
 	<arg name="autorepeat_rate" 	default="20" />
 	<arg name="joy_topic" 			default="joy" />
+	<arg name="use_enable_key" 		default="true" />
 
   	<!-- JOY ROS NODE -->
 	<include file="$(find sass_psx)/launch/ps4.launch">
@@ -15,8 +16,9 @@
  	</include>
 
 	<node pkg="sass_psx" type="psx_manual_node" name="psx_manual_node" respawn="true" output="screen">
-		<rosparam 	command="load" 		file="$(arg config_filepath)" />
-		<remap 		from="joy" 			to="$(arg joy_topic)" />
+		<rosparam 	command="load" 			file="$(arg config_filepath)" />
+		<param 		name="use_enable_key" 	value="$(arg use_enable_key)" />
+		<remap 		from="joy" 				to="$(arg joy_topic)" />
  	</node>
 
 </launch>

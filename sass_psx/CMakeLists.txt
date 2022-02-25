@@ -5,15 +5,26 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
-  #agv_define
   sensor_msgs
+  message_generation
   geometry_msgs
+  agv_define
 )
 
+add_message_files(
+  FILES
+  psx_manual.msg
+)
+
+generate_messages(
+   DEPENDENCIES
+   std_msgs
+)
+ 
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES ${PROJECT_NAME}
-  CATKIN_DEPENDS roscpp rospy std_msgs agv_define sensor_msgs geometry_msgs
+  CATKIN_DEPENDS message_runtime roscpp rospy std_msgs sensor_msgs geometry_msgs agv_define 
 )
 
 include_directories(
@@ -27,7 +38,6 @@ target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${G
 add_executable(psx_manual_node src/psx_manual_node.cpp)
 target_link_libraries(psx_manual_node ${PROJECT_NAME})
 add_dependencies(psx_manual_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
 
 #############
 ## Install ##

@@ -16,9 +16,13 @@
 
 # Run
 - Run PS4: $roslaunch sass_psx psx_control_manual.launch
+- Enable psx_mannual: Publish to topic /enable_psx_manual with mode=1
 - Control PS4: 
-    + Press and hold the L1 or L2 to select max_linear_speed
+    + Press and hold the L1 or L2 to select max_linear_speed and max_angular_speed
+      + L1: max_linear_speed = 1m/s, max_angular_speed = 0.6 rad/s
+      + L2: max_linear_speed = 0.3m/s, max_angular_speed = 0.25 rad/s
     + Use Vertical of left joystick to control Linear and Horizontal of right joystick to control Angular
+- Check status: $rostopic echo /psx_manual_status
 
 # Install package
 - Add command to install in CMakeLists.txt:
@@ -62,7 +66,7 @@ install(FILES
 
 # Autoconnect Bluetooth with systemctl (Autostart when boot)
 - Create bash file:
-    + Direct to folder: /SASs_PSx_ws/src/SASs_PSx/sass_psx
+    + Direct to folder: /SASs_AMR_ws/src/SASs_AMR/base_controller/sass_startup
     + Create and edit bash file: $sudo nano autoconnect_bluetooth.sh
     + Add to bash file: 
 ```
@@ -77,7 +81,7 @@ connected() {
 }
 while true
 do
-    sleep 1
+    sleep 5
     if [ $(powered) = yes ] && [ $(connected) = no ]; then
         echo "connect ${MAC}" | bluetoothctl
         sleep 5
@@ -95,11 +99,11 @@ done
 After=network.target
 StartLimitIntervalSec=0
 [Service]
-User=nhamtung
+User=robotics
 Type=simple
 Restart=always
 RestartSec=1
-ExecStart=/home/nhamtung/TungNV/SASs_PSx_ws/src/SASs_PSx/sass_psx/autoconnect_bluetooth.sh
+ExecStart=/home/robotics/SASs_AMR_ws/src/SASs_AMR/base_controller/amr_startup/sass_startup/sass_startup/autoconnect_bluetooth.sh
 RemainAfterExit=no
 [Install]
 WantedBy=multi-user.target
